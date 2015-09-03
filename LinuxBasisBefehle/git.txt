@@ -1,0 +1,25 @@
+Initialisieren:
+	a. auf github Account und Repository anlegen
+	b. lokales Repository anlegen
+		mkdir git_repos
+		cd git_repos
+		git init
+	c. konfiguration
+		git config --global user.name "user_von_github"
+		git config --global user.email "user_von_github@web.de"
+			# --global: gilt für alle zukünftigen Repos auf diesem Rechner
+	d. Verbinden Remote - Lokal
+		git remote add origin https://user_von_github@github.
+		com:user_von_github/git_repos.git
+			#Link kann man sich bei GitHub auf dem Repository holen
+			wird dort angezeit. https://github.com/reinhosas/eup_fit4af.git
+
+Daten synchronisieren
+	a. ins Verzeichnis git_repos navigieren
+	b. git add . -A "von hier alle Dateien hinzufügen"
+	c. git commit -am "Beschreibung der Änderung"
+	d. git push origin master "Dateien hochladen"
+			#eventuell vorher  git pull origin master,wenn Dateien online sind die noch nicht Lokal gesichert sind
+
+Um sich nur einmal am Tag anmelden zu müssen:
+			git config --global credential.helper 'cache --timeout=36000'
