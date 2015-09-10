@@ -1,0 +1,19 @@
+Zuweisung:
+ var_name = "Dies ist ein String"
+ 	#eine Zuweisung erfolgt über Zuweisungsoperator "="
+ 	# der Datentyp erfolgt implizit über den Wert (Sring, Ganze Zahl, Datum)
+
+ Zeichenkette (String)
+ 	str = "So oder"
+ 	str2 = 'es geht auch so'
+ 	str3 = string.new("noch anders, ganz professionell")
+ 		# Eine Zeichenkette muss mit öffnenden und schließenden
+ 		Anführungszeichen eingegeben werden.
+
+ 	Ganze Zahl ( integer, Fixnum)
+ 		zahl = 15
+ 		# kein Anführungszeichen
+
+ 	Float (kommazahl)
+ 		komma_zahl = 9.18
+ 		
