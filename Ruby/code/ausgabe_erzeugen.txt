@@ -22,6 +22,10 @@ Zusammengesetzte Ausgabe:
 		#Am Anfang und am Ende müssen doppelte Anführungszeichen stehen.
 		# innerhalb des Konstruktes #{} wird jeder Ruby-code ausgeführt.
 		Es findet eine automatische Konvertierung in einen String statt.
+	name1 ="larry"
+	health = 60
+	puts "#{name1}´s health is #{health}"
+		#Beliebiger Text zwischen den Variablen
 
 Ausgabe formatieren:
 	puts "Die \"Woche\" besteht aus:\n\tMontag\n\tDienstag."

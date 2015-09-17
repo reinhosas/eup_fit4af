@@ -1,0 +1,3 @@
+Mit cd in den Ordner navigieren in dem die RUBY_Datei liegt
+und dann:
+	ruby dateiname.rb

@@ -1,0 +1,51 @@
+#b)
+name1 = "larry"
+
+#c)
+health = 60
+
+#d)
+puts name1 + "'s health is " + health.to_s
+puts "#{name1}'s health is #{health}"
+
+#e)
+puts health*3
+
+#f)
+puts health/9.to_f
+puts health/9
+
+#g)
+puts "Players:\n\tlarry\n\tcurly\n\tmoe"
+player1 = "larry"
+player2 = "curly"
+player3 = "moe"
+
+#h)
+puts "Players:\n\t" + player1 + "\n\t" + player2 + "\n\t" + player3
+
+#Erzeugen Sie folgende Ausgabe:
+=begin
+Larry has a health of 60.
+CURLY has a health of 125.
+*************Moe has a health of 100.*************
+*************Moe has a health of 100.*************
+Shemp......................... 90 health
+Shemp......................... 90 health
+Players:
+        Larry
+        Curly
+        Moe
+The game started on Thursday 08/02/2012 at 11:42AM
+=end
+puts player1 + " has health of " + health.to_s + "."
+health2 = 125
+puts player2 + " has health of " + health2.to_s + "."
+health3 = 100
+status = player3 + " has health of " + health3.to_s + "."
+puts status.center(50, "*")
+puts status.center(50, "*")
+puts "Shemp......................... 90 health"
+puts "Shemp......................... 90 health"
+puts "Players:\n\t" + player1 + "\n\t" + player2 + "\n\t" + player3
+puts "The game started on #{Time.new}"

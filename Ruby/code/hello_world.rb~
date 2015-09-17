@@ -1,4 +1,3 @@
-puts "Die \"Woche\" besteht aus:\n\tMontag\n\tDienstag."
 
 var = "Hello Ruby"
 var2 = "heute ist der 9.9.2015"

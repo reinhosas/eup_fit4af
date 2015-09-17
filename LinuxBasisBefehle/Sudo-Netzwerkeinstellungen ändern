@@ -1,0 +1,9 @@
+pan@R1-11A01VM01:~$ sudo su -
+[sudo] password for pan: 
+root@R1-11A01VM01:~# vi help
+root@R1-11A01VM01:~# vi /etc/network/interfaces
+root@R1-11A01VM01:~# ifdown eth0
+RTNETLINK answers: No such process
+root@R1-11A01VM01:~# ifup eth0
+root@R1-11A01VM01:~# 
+
