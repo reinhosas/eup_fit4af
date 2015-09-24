@@ -11,31 +11,37 @@
 # i. die say_hello - Methode soll aufgerufen werden, wenn nur das Objekt ausgegeben werden soll, also puts players erfolgt.
 
 class Player
-	def initialize(pname, phealth=100)
-		@name = pname
+	def initialize(pname, phealth=100)#Konstruktor
+		@name = pname				#alles mit "@"" sind Instanzvariablen("Nur" gültig in der gesammten Klasse)
 		@health = phealth
 	end
 
-	def say_hello
-		"Hallo #{@name}"
-	end
 
-	def to_s
+	def say_hello
 		"Der Player #{@name} hat die Health: #{@health}"
 	end
-	
+	def to_s
+		say_hello
+	end
 	def blam
-		@rank = @rank + 10
+		@health = @health + 10
+		"#{@name} got blamed"
+
 	end
-	
 	def w00t
-		@rank = @rank - 10
+		@health = @health - 10
+		"#{@name} got w00ted"
 	end
+
 
 end
 
-	player1 = Player.new("John",85)
+	player1 = Player.new("Mike",60)
+	puts player1
+	puts player1.blam
 	puts player1
 
-	player2 = Player.new("Jack")
+	player2 = Player.new("Gorden")
 	puts player2.say_hello
+	puts player2.w00t
+	puts player2
