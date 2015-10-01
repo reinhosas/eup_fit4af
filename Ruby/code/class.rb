@@ -1,3 +1,5 @@
+
+
 class Movie
 	attr_reader :title, :rank
 
