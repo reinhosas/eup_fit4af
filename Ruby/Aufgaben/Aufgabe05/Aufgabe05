@@ -51,7 +51,7 @@ class Player
 	def score
 		@health + @name.length
 	end
-	def say_hello
+	def to_s
 		"Ich bin #{@name} mit einem Wert von #{@health} und einen Score von #{score}."
 	end
 	def blam
@@ -61,9 +61,6 @@ class Player
 	def woot
 		@health -= 10
 		puts "#{@name} got wooted!"
-	end
-	def to_s
-		say_hello
 	end
 end
 
