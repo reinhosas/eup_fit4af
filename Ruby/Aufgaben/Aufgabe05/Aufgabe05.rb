@@ -23,11 +23,11 @@ class Game
 		@title = ititle 			#Instanzvariable
 		@player = []					#leeres Array
 	end
-	def add_player(name)
+	def add_player(name)		#Methode Player hinzufügen
 		@player << name
 	end
 	def play
-		puts "There are #{@player.count} players in Knuckleheads:"
+		puts "There are #{@player.count} players in #{@title}:"
 		@player.each do |row|
 			puts row
 		end
@@ -67,9 +67,9 @@ end
 player1 = Player.new("Moe")
 player2 = Player.new("Larry")
 player3 = Player.new("Curly")
-game = Game.new("My Game")
-game.add_player(player4)
-game.add_player(player5)
-game.add_player(player6)
+game = Game.new("Knuckleheads")
+game.add_player(player1)
+game.add_player(player2)
+game.add_player(player3)
 
 game.play
