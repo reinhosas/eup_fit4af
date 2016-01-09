@@ -1,0 +1,8 @@
+Eine neues Rails-Projekt anlegen:
+	auf den Ordner gehen wo das neue Projekt angelegt werden soll.
+		rails new flix
+	Mit scaffold automatisch eine Tabelle anlegen:
+		rails g scaffold movie title:string rating:string total_gross:decimal description:text released_on:date
+	Datenbank migrieren:
+		rake db:migrate
+

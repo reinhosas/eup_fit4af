@@ -1,15 +1,31 @@
-<h1>Movies</h1>
+<h1>Listing <%= pluralize(@movies.size, 'Movie') %></h1>
+
 <table>
-	<tr>
-		<th>Titel</th>
-		<th>Rating</th>
-		<th>Total-Gross</th>
-	</tr>
-<% @movies.each do |movie| %>
-	<tr>
-		<td><%= movie.title %></td>
-		<td><%= movie.rating %></td>
-		<td><%= movie.total_gross %></td>
-	</tr>
-<% end %>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>Total gross</th>
+      <th>Description</th>
+      <th>Released on</th>
+      <th> Anzeigen </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= format_total_gross(movie) %></td>
+        <td><%= truncate(movie.description, length:40, seperator: ' ') %></td>
+        <td><%= movie.released_on %></td>
+        <td><%= link_to 'Show', movie %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Movie', new_movie_path %>
