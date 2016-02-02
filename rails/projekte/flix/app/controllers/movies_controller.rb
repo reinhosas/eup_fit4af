@@ -1,14 +1,12 @@
 class MoviesController < ApplicationController
-  
+  before_action :set_movie, only: [:show, :edit, :update, :destroy]
 
-  # GET /movies
-  # GET /movies.json
   def index
-    @movies = Movie.all
+    @movies = Movie.release
   end
 
   def show
-  	@movie = Movie.find(params[:id])
+    # @movie = Movie.find(params[:id])
   end
 
   def new
@@ -16,9 +14,31 @@ class MoviesController < ApplicationController
 	end
 
 	def create
-		permitted_params = params.require(:movie).permit(:title, :rating, :total_gross, :description, :released_on)
-		@movies = Movie.create(permitted_params)
+		@movies = Movie.create(movie_params)
 		redirect_to movies_url
 	end
+
+  def edit
+    # @movie = Movie.find(params[:id])
+  end
+
+  def update
+    # @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
+    redirect_to movies_url
+  end
+  def destroy
+    @movie.destroy
+    redirect_to movies_url
+  end
+
+  private
+    def movie_params
+      permitted_params = params.require(:movie).permit(:title, :rating, :total_gross, :description, :released_on)
+    end
+
+    def set_movie
+      @movie = Movie.find(params[:id])
+    end
 
 end

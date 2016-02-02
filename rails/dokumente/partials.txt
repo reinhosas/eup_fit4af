@@ -1,0 +1,10 @@
+Partials sind Elemente einer html-Datei die Code enthalten, die an mehreren Stellen eingesetzt werden können.
+Beispiel:
+	Sowohl die new, als auch die edit-Action benötigen die gleiche Tabellenspalten. Anstatt das man das Fomular kopiert und dann in zwei dateien pflegen muss, lagert man das Fomular in einer neuen Datei (views/events/_form.html.erb) aus, und bindet diese Datei in den Templates new.html.erb und edit.html.erb ein.
+
+Syntax:
+	Ein T
+	typisches Partial beginnt mit einem Unterstrich (_form.html.erb)
+	Der Befehl zum Einbinden lautet:
+		>%= render "form" %>
+		Damit dieser Befehl funktioniert muss en im gleichen Ordner eine Datei mit der Bezeichnung _form.html.erb geben.

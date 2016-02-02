@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
-	before_action :set_event, only: [:show, :edit, :update] #führt die find(params[:id]) für show edit und update aus
+	before_action :set_event, only: [:show, :edit, :update, :destroy] #führt die find(params[:id]) für show edit und update aus
+	
 	def index
-		@events = Event.all
+		@events = Event.upcoming
 	end
 
 	def show
@@ -26,7 +27,10 @@ class EventsController < ApplicationController
 		@event.update(event_params)
 		redirect_to events_url
 	end
-
+	def destroy
+		@event.destroy
+		redirect_to events_url
+	end
 	private #alles was daunter kommt ist privat
 		def event_params
 			permitted_params = params.require(:event).permit(:name, :description, :location, :price, :start_at)
