@@ -1,8 +1,18 @@
 <h1><%= @movie.title %></h1>
-
+<p><%= image_for(@movie) %></p>
+<h3>Beschreibung</h3>
 <p><%= @movie.description %></p>
 
 <p>
+	<h3>Lauflänge</h3>
+	<%= @movie.duration %>
+
+	<h3>Regisseur</h3>
+	<%= @movie.director %>
+
+	<h3>Besetzung</h3>
+	<%= @movie.cast %>
+
 	<h3>Bewertung</h3>
 	<%= @movie.rating %>
 

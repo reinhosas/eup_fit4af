@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 	end
 	private #alles was daunter kommt ist privat
 		def event_params
-			permitted_params = params.require(:event).permit(:name, :description, :location, :price, :start_at)
+			permitted_params = params.require(:event).permit(:name, :image_file, :capacity, :description, :location, :price, :start_at)
 		end
 
 		def set_event

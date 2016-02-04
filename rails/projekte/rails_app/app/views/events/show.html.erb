@@ -1,6 +1,8 @@
 <h1><%= @event.name %></h1>
+<p><%= image_for(@event) %></p>
 
 <p><%= @event.description %></p>
+
 
 <p>
 	<h3>Wann</h3>
@@ -11,6 +13,9 @@
 
 	<h3>Preis</h3>
 	<%= @event.price %>
+
+	<h3>Anzahl Plätze</h3>
+	<%= pluralize(@event.capacity, 'spot')%>
 
 </p>
 

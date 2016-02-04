@@ -1,0 +1,7 @@
+Aufgabe:
+ Fügen Sie die Spalten: poster image file, cast, director, duration -> hinzu und integrieren SIe diese in die App.
+
+ duration: Lauflänge (integer)
+ director: (string)
+ cast: Besetzung (string)
+ poster image file: (string)
