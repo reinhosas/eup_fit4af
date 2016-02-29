@@ -1,0 +1,29 @@
+<h1><%= @movie.title %></h1>
+
+<p><%= @movie.description %></p>
+
+<%= image_for(@movie) %>
+<p>
+	<h3>Wann</h3>
+	<%= @movie.released_on %>
+
+	<h3>Worum geht's?</h3>
+	<%= @movie.description %>
+
+	<h3>Bewertung</h3>
+	<%= @movie.rating %>
+
+	<h3>Einspielergebnis</h3>
+	<%= @movie.total_gross %>
+
+	<h3>Lauflänge</h3>
+ <%= pluralize(@movie.duration, 'minute') %>
+
+ <h3>Regisseur</h3>
+ <%= @movie.director %>
+
+ <h3>Besetzung</h3>
+ <%= @movie.cast %>
+</p>
+
+<p><%= link_to "Alle Movies anzeigen", movies_path %></p>

@@ -1,0 +1,47 @@
+Anlegen eines neuen Datensatzes:
+	a = Event.new(name: "Alt-J", location: "Berlin", price: 40.00)
+	a.save
+
+	Event.create(name: "Beatles", location: "Manchester", price: 10.00)
+
+Modifizieren von Datensatz:
+	Event.first.update(name: "Neuer Name")
+
+Löschen von Datensatz:
+	Event.second.delete
+
+Ausgeben von Datensätzen:
+	Event.all
+	#gibt alle Datensätze aus, die in der Tabelle vorhanden
+
+Ausgeben aller Datensätze mit "Anzahl > 2"
+	Author.where("anzahl > 2")
+
+Virtuelles Attribut:
+def
+	"#{vorname} #{nachname}"
+end
+
+Der Name des Models wird immer groß geschrieben
+	Bsp: "Events.all"
+
+Methoden im Model:
+	Es gibt zwei Arten von Methoden. 
+	Die sogenannten Klassenmethoden, die mit dem Model-Namen aufgerufen werden, und die Objekt-Methden die mit einer Instanz der Klassen aufgerufen werden.
+
+	Beispiel: Klassenmethode:
+		Aufruf: (im Controller)
+			@events = Event.upcoming
+		Definition: (im model)
+			def self.upcoming
+				where("starts_at >= ?", Time.now)
+			end
+
+Beispiel Objektmethode: 
+	Aufruf: (im View, im Controller)
+		@event = Event.find(2)
+		@event.free?
+	Definition: (im model)
+		def free?
+			self.price.blank?
+		end

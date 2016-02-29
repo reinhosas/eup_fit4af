@@ -1,4 +1,0 @@
-api.rubyonrails.org
-guides.rubyonrails.org
-
-Gute Übung: Getting Stared with rails

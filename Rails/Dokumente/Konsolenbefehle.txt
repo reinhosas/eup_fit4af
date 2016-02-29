@@ -1,0 +1,19 @@
+Anlegen eines Projektes
+	rails new <projekt_name>
+
+Starten eines Servers
+	cd <projekt_name>
+	rails s
+
+	STRG+c beendet den Server
+
+Starten einer RailsConsole:
+	rails c
+
+	exit in der Konsole schließt diese
+
+Sortierreihenfolge bei Abruf
+	Event.all.order("name DESC")
+
+Abruf nach Kriterium
+	Event.find_by(name: "Alt-J")
