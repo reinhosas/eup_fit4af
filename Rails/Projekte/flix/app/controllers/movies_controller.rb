@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
 	before_action :set_movie, only: [:show, :edit, :update, :destroy]
-	before_action :set_sidebar_movies
+	
 	def index
 		@movies = Movie.all
 	end
@@ -43,9 +43,7 @@ class MoviesController < ApplicationController
 			params.require(:movie).permit(:poster_image_file, :director, :cast, :duration, :title, :description, :total_gross, :rating, :released_on)
 		end
 
-		def set_sidebar_movies
-			@sidebar_movies = Movie.total_gross
-		end
+		
 
 		def set_movie
 			@movie = Movie.find(params[:id])
