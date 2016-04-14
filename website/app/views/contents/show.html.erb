@@ -1,0 +1,11 @@
+<h1><%= @content.title %></h1>
+<p><%= @content.description %></p>
+<p><%= @content.date %></p>
+<p>
+	<ul class="button-group">
+		<li>
+			<%= link_to "Alle Einträge anzeigen", contents_path, class: "button" %>
+		</li>
+	</ul>
+</p>
+<%= link_to "Tasks", content_tasks_path(@content.id), class: "button" %>

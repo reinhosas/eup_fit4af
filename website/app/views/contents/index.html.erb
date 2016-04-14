@@ -1,0 +1,30 @@
+<h1>
+	<%if @contents.size == 1 %>
+	<%="Eintrag" %>
+	<% else %>
+	<%= "Einträge" %> <% end %>
+</h1>
+
+<table>
+	<thread>
+			<tr>
+			<th>Title</th> 
+			<th>Description</th> 
+			<th>Date</th> 
+			</tr>
+	</thread>
+	<tbody>
+		<% @contents.each do | var | %>
+			<tr>
+				<td><%= var.title %></td>
+				<td><%= var.description %></td>
+				<td><%= var.date %></td>
+				<td><%= link_to "Show", content_path(var.id) %></td>
+				<td><%= link_to "Edit", edit_content_path(var.id) %></td>
+				<td><%= link_to "Destroy", content_path(var.id), method: :delete, data: {confirm: "Sind sie sicher?"} %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to "Neuen Eintrag", new_content_path %>

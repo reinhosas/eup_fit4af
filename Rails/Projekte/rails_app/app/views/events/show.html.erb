@@ -22,7 +22,7 @@
 	<%= link_to "Alle Events anzeigen", events_path, class:"button" %>
 	<%= link_to "Back", request.referer, class:"button" %>
 	<% if @event.spots_left > 0 %>
-		<%= link_to "Registrieren!!!", new_event_registration_path(@event.id), class:"button" %>
+	<%= link_to "Registrieren!!!", new_event_registration_path(@event.id), class:"button" %>
 	<% end %>
   </div>
 </p>
