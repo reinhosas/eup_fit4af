@@ -14,4 +14,24 @@
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
+
+<% if @user.registrations.any? %>
+	<h4> Registriert für:</h4>
+	<ul>
+			<% @user.registrations.each do |registration| %>
+			<li><%= link_to registration.event.name, registration.event %></li>
+			<% end %>
+	</ul>
+<% end %>
+
+<hr />
+<% if @liked_events.any? %>
+	<h3>Liked Events</h3>
+	<ul>
+	<% @liked_events.each do |event| %>
+		<li><%= link_to event.name, event %></li>
+	<% end %>
+	</ul>
+<% end %>
+
 <%= link_to 'Back', users_path %>

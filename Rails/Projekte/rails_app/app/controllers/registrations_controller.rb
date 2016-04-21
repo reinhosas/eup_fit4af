@@ -1,6 +1,7 @@
 class RegistrationsController < ApplicationController
 	before_action :set_event
 	before_action :require_signin, except: [:new, :create]
+
 	
 	def index
 		@registrations = @event.registrations
