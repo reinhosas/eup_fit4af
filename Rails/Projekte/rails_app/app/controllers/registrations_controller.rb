@@ -12,6 +12,7 @@ class RegistrationsController < ApplicationController
 	end
 	def create
 		@registration = @event.registrations.new(registration_params)
+		@registration.user_id = current_user.id
 		if @registration.save
 			redirect_to event_path(@event.id), notice: "Die Registrierung wurde gespeichert"
 		else
@@ -27,7 +28,7 @@ class RegistrationsController < ApplicationController
 
 	private
 		def registration_params
-			params.require(:registration).permit(:name, :email, :how_heard, :event_id)
+			params.require(:registration).permit(:how_heard, :event_id, :user_id)
 		end
 		def set_event
 			@event = Event.find(params[:event_id])
