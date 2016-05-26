@@ -9,6 +9,13 @@ Rails.application.routes.draw do
   resource :session
 
   resources :events do
+    #member do
+
+    #end
+
+    collection do
+      get 'past'
+    end
     resources :registrations
     resources :likes
   end

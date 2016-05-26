@@ -20,7 +20,8 @@ class Event < ActiveRecord::Base
 		end
 	end
 
-	def self.upcoming
-		where("start_at >= ?", Time.now).order("start_at")
-	end
+	scope :upcoming, -> {where("start_at >= ?", Time.now).order("start_at")}
+
+	scope :free, -> {where("price <= 0").order(:name)}
+	scope :past, -> {where("start_at <= ?", Time.now)}
 end

@@ -22,17 +22,19 @@
 	<% if @likers.any? %>
 
 		<% @likers.each do |user| %>
-			<li><%= link_to user.name, user %></li>
+			<li id="like_<%= user.likes.find_by(event_id: @event.id).id %>"> <%= link_to user.name, user %></li>
 		<% end %>
 		<% else %>
 		<li id="no_liker"> Sei der 1. Liker, du Wurstfresse</li>
 	<% end %>
 </ul>
-	<% if @current_like %>
-	<%= button_to "Unlike", event_like_path(@event, @current_like), class: "button", method: :delete %>
-	<% else %>
-		<%= button_to "Like", event_likes_path(@event), remote: true, class: "button tiny" %>
-	<% end %>
+	
+	<div id="unlike_button">
+	<%= button_to("Unlike", event_like_path(@event, @current_like), class: "button", method: :delete, remote: true) if @current_like.present? %>
+</div>
+<div id="like_button">
+	<%= button_to "Like", event_likes_path(@event), remote: true, class: "button" %>
+</div>
 
 
 
@@ -45,3 +47,13 @@
 	<% end %>
   </div>
 </p>
+
+<script>
+	$(document).ready(function(){
+		<% if @current_like.present? %>
+			$("#like_button").hide();
+		<% else %>
+			$("#unlike_button").hide();
+		<% end %>
+	});
+</script>

@@ -1,0 +1,34 @@
+Mit einer Collection kann die Auswahl von links mit einem dropdown Menü realisiert werden.
+
+1.	Im der routes. rb wird eine Collection für in diesem Fall events angelegt:
+
+		collection do
+      get 'past'
+		end
+
+		Diese definiert der Apllication lediglich das es für events eine Route zur past.html.erb gibt (bzw. erstellt diese)
+
+2.	Im Model events.rb werden die Actions definiert (Name und was soll die Action aus der Datenbank ziehen)
+		Hier mit sogenanten Scopes realisiert (erspaart das 'def' und 'end')
+
+			scope :upcoming, -> {where("start_at >= ?", Time.now).order("start_at")}
+			scope :free, -> {where("price <= 0").order(:name)}
+			scope :past, -> {where("start_at <= ?", Time.now)}
+
+		zb. Die Action 'past' zieht alle Einträge für vergangene Events aus der Datenbank.
+
+3.  In der _navigation.html.erb wird das Dropdown Menü definiert und jeder Link zeigt auf eine Bestimme Route.
+		zb. 'past_events_path' für Vergange Events, zeigt auf die 'past.html.erb' (die zuvor angelegt werden muss)
+
+
+4.  Klickt man also auf den Link "Vergange Events" wird die Seite past.html.erb aufgerufen.
+		Diese Seite verweist weiter auf die _events.html.erb in der der gesammte Inhalt der Seite steht, der angezeigt werden soll.
+		<%= render 'events' %>
+		Der events_controller zieht sich durch die Methode:
+
+		def past
+		@events = Event.past
+		end
+
+		die Einträge aus der Datenbank die im Model 'scope' definiert wurde.
+		Die Seite _events.html.er zeigt dann nur diese @events an.
