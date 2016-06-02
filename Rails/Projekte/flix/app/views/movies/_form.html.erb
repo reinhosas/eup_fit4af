@@ -1,51 +1,53 @@
 <%= form_for(@movie) do |f| %>
-	<% if @movie.errors.any? %>
-		<h3>Upps! Der <%= @movie.class.name.titleize.downcase %> konnte nicht gespeichert werden.</h3>
-		Korrigieren Sie die folgenden <%= pluralize(@movie.errors.count, "error") %>: 
-		<ul>
-			<% @movie.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-		</ul>	
-	<% end %>
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :description %><br>
-		<%= f.text_area :description %>
-	</p>
-		<p>
-		<%= f.label :rating %><br>
-		<%= f.text_field :rating %>
-	</p>
-		<p>
-		<%= f.label :total_gross %><br>
-		<%= f.number_field :total_gross %>
-	</p>
-	<p>
-		<%= f.label :released_on %><br>
-		<%= f.datetime_select :released_on %>
-	</p>
-	<p>
-		<%= f.label :poster_image_file %><br>
-		<%= f.text_field :poster_image_file, placeholder: "Filmtitel + .jpg als Dateityp" %>
-	</p>
-	<p>
-		<%= f.label :cast %><br>
-		<%= f.text_field :cast %>
-	</p>
-	<p>
-		<%= f.label :director %><br>
-		<%= f.text_field :director %>
-	</p>
-	<p>
-		<%= f.label :duration %><br>
-		<%= f.number_field :duration %>
-	</p>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
 
-		<p>
-		<%= f.submit %>
-	</p>
+      <ul>
+      <% @movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style="width:400px; height: auto;">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field" style="width:400px; height: auto;">
+    <%= f.label :rating %>
+    <%= f.text_field :rating %>
+  </div>
+
+  <div class="field" style="width:400px; height: auto;">
+    <%= f.label :total_gross %>
+    <%= f.text_field :total_gross %>
+  </div>
+
+  <div class="field" style="width:400px; height: auto;">
+    <%= f.label :descreption %>
+    <%= f.text_area :descreption, :cols => "5", :rows => "1" %>
+  </div>
+
+  <div class="field" style="width:400px; height: auto;">
+      <%= f.label :poster_image_file %>
+      <%= f.text_field :poster_image_file, placeholder: "GIF, JPG, JPEG, PNG als Dateityp" %>
+  </div>
+
+  <div class="field" style="width:400px; height: auto;">
+      <%= f.label :duration%>
+      <%= f.number_field :duration%>
+  </div>
+
+  <div class="field" style="width:400px; height: auto;">
+    <%= f.label :released_on %>
+    <%= f.date_select :released_on, {:prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }}, {:class => 'date-select'} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "button" %>
+  </div>
+
 <% end %>

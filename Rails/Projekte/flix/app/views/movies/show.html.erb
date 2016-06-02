@@ -1,37 +1,38 @@
-<h1><%= @movie.title %></h1>
+<p id="notice"><%= notice %></p>
+<table>
+  <td><p><%= image_for(@movie) %>
+        </p>
+    <th>
 
-<p><%= @movie.description %></p>
+        <p>
+          <strong>Title:</strong>
+          <%= @movie.title %>
+        </p>
 
-<%= image_for(@movie) %>
-<p>
-	<h3>Wann</h3>
-	<%= @movie.released_on %>
+        <p>
+          <strong>Rating:</strong>
+          <%= @movie.rating %>
+        </p>
 
-	<h3>Worum geht's?</h3>
-	<%= @movie.description %>
+        <p>
+          <strong>Total gross:</strong>
+          <%= @movie.total_gross %>
+        </p>
 
-	<h3>Bewertung</h3>
-	<%= @movie.rating %>
+        <p>
+          <strong>Descreption:</strong>
+          <%= @movie.descreption %>
+        </p>
 
-	<h3>Einspielergebnis</h3>
-	<%= @movie.total_gross %>
+        <p>
+          <strong>Released on:</strong>
+          <%= @movie.released_on %>
+        </p>
+    </th>
+  </td>
+</table>
 
-	<h3>Lauflänge</h3>
- <%= pluralize(@movie.duration, 'minute') %>
 
- <h3>Regisseur</h3>
- <%= @movie.director %>
-
- <h3>Besetzung</h3>
- <%= @movie.cast %>
-</p>
-
-<!--<p><%= link_to "Alle Movies anzeigen", movies_path %></p>-->
-
-<p>
-	<div class="button-group">
-	<%= link_to "Alle Movies anzeigen", movies_path, class:"button" %>
-	<%= link_to "Back", request.referer, class:"button" %>
-	<%= link_to "Bewerten", new_movie_review_path(@movie.id), class:"button" %>
-  </div>
-</p>
+<%= link_to "<i class='fi-pencil icon-green'></i>".html_safe, edit_movie_path(@movie) %> |
+<%= link_to "<i class='fi-arrow-left icon-green'></i>".html_safe, movies_path %> | 
+<%= link_to "<i class='fi-trash icon-red'></i>".html_safe, movie_path(@movie), method: :delete, data: {confirm: 'Möchten Sie Wirklich löschen?' } %>

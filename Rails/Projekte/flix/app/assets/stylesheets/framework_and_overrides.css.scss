@@ -1,12 +1,13 @@
 // import the CSS framework
-$table-even-row-bg: lightblue;
+$table-even-row-bg: silver;
 @import "foundation";
 @import 'foundation-icons';
 
 // override for the 'Home' navigation link
 .top-bar .name {
-  font-size: rem-calc(13);
+  font-size: rem-calc(15);
   line-height: 45px; }
+
 .top-bar .name a {
   font-weight: normal;
   color: white;
@@ -18,45 +19,63 @@ $table-even-row-bg: lightblue;
   @extend .small-12;
   @extend .columns;
   }
+
 @mixin six-columns-centered {
   @extend .small-6;
   @extend .columns;
   @extend .text-center;
   }
+
 // create your own classes
 // to make views framework-neutral
 .column {
   @include six-columns-centered;
   }
+
 .form {
   @include grid-column(6);
   }
+
 .form-centered {
   @include six-columns-centered;
   }
+
 .submit {
   @extend .button;
   @extend .radius;
   }
+
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
   @include twelve-columns;
   background-color: #eee;
   }
+
 section {
   @extend .row;
   margin-top: 20px;
   }
-.icon-red{
-  color:red;
+
+// Icons color
+.icon-red {
+  color: red; 
   font-size: 1.5em;
   }
-.icon-green{
-  color:green;
+
+.icon-blue {
+  color: blue;
   font-size: 1.5em;
-  }
-.icon-blue{
-  color:blue;
+}
+
+.icon-green {
+  color: green;
   font-size: 1.5em;
-  }
+}
+
+// Date select
+select.date-select {
+    width:auto;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+}

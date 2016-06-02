@@ -4,6 +4,8 @@ class CreateMovies < ActiveRecord::Migration
       t.string :title
       t.string :rating
       t.decimal :total_gross
+      t.text :descreption
+      t.date :released_on
 
       t.timestamps null: false
     end

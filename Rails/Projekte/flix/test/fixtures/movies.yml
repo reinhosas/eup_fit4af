@@ -4,8 +4,12 @@ one:
   title: MyString
   rating: MyString
   total_gross: 9.99
+  descreption: MyText
+  released_on: 2015-12-17
 
 two:
   title: MyString
   rating: MyString
   total_gross: 9.99
+  descreption: MyText
+  released_on: 2015-12-17

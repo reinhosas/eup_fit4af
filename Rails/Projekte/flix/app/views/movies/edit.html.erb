@@ -1,3 +1,7 @@
-<h2>Editieren von <%= @movie.title %></h2>
+<h1>Editing <%= @movie.title %> Movie</h1>
 
-	<%= render "form" %>
+<%= render 'form' %>
+
+
+<%= link_to "<i class='fi-eye icon-blue'></i>".html_safe, movie_path(@movie) %> |
+<%= link_to "<i class='fi-arrow-left icon-green'></i>".html_safe, movies_path %> | 

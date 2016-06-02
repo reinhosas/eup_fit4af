@@ -1,39 +1,35 @@
-		<% if @movies.size == 1 %>
-			<h1>Movie</h1>
-		<% else %>
-			<h1>Movies</h1>
-		<% end %> 
+<p id="notice"><%= notice %></p>
 
-<table border=1>
-	<thead>
-		<tr>
-			<th>Title</th>
-			<th>Release</th>
-			<th>Beschreibung</th>
-			<th>Rating</th>
-			<th>Total gross</th>
-			<th>Bewertungen</th>
-			<th>Anzeigen</th>
-			<th>Bearbeiten</th>
-			<th>Löschen</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @movies.each do |movie| %>
-			<tr>
-				<td><%= movie.title %></td>
-				<td><%= movie.released_on %></td>
+<h1>Listing <%= pluralize(@movies.size, 'Movies') %></h1>
 
-				<td><%= truncate(movie.description, length: 40, sepeterator: '') %></td>
-				<td><%= movie.rating %></td>
-				<td><%= flop_top(movie) %></td>
-				<td><%= link_to "<i class='fi-torsos-all icon-blue'></i>".html_safe, movie_reviews_path(movie.id) %></td>
-				<td><%= link_to "<i class='fi-video icon-green'></i>".html_safe, movie_path(movie.id) %></td>
-				<td><%= link_to "<i class='fi-wrench icon-blue'></i>".html_safe, edit_movie_path(movie.id) %></td>
-				<td><%= link_to "<i class='fi-trash icon-red'></i>".html_safe, movie_path(movie.id), method: :delete, data: {confirm: "Wirklich löschen"} %></td>
-			</tr>
-		<% end %>
-	</tbody>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>Total gross</th>
+      <th>Descreption</th>
+      <th>Released on</th>
+      <th>Reg.</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= format_total_gross(movie) %></td>
+        <td><%= truncate(movie.descreption, length: 40, seperator: ' ') %></td>
+        <td><%= movie.released_on %></td>
+        <td><%= link_to "<i class='fi-torsos-all icon-blue'></i>".html_safe, movie_registrations_path(movie.id) %></td>
+        <td><%= link_to "<i class='fi-eye icon-blue'></i>".html_safe, movie_path(movie.id) %></td>
+        <td><%= link_to "<i class='fi-pencil icon-green'></i>".html_safe, edit_movie_path(movie.id) %></td>
+        <td><%= link_to "<i class='fi-trash icon-red'></i>".html_safe, movie_path(movie.id), method: :delete, data: {confirm: 'Möchten Sie Wirklich löschen?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<%= link_to "Neuen Movie anlegen", new_movie_path %>
+<%= link_to "<i class='fi-plus icon-green'></i>".html_safe, new_movie_path %>

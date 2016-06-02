@@ -1,0 +1,24 @@
+<h3><%= @movie.title %></h3>
+<p><%= "#{pluralize(@movie.registrations.size, "Registrierung", "Registrierungen")}" %> für <%= @movie.title %></p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>HowHeard</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @registrations.each do |registration| %>
+		<tr>
+			<td><%= registration.title %></td>
+			<td><%= registration.email %></td>
+			<td><%= registration.how_heard%></td>
+			<td><%= link_to "<i class='fi-trash icon-red'></i>".html_safe, event_registration_path(@movie.id, registration.id), method: :delete, data: {confirm: "Möchten Sie wirklich löschen"} %></td>
+		</tr>
+		<% end %>
+
+	</tbody>
+</table>

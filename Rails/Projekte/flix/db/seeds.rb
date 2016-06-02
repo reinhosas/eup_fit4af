@@ -5,3 +5,4 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#Event.create(:title => "Albert", :rating => 10, :total_gross => , :descreption, :released_on, :poster_image_file, :cast)
