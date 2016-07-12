@@ -8,17 +8,18 @@
     <ul>
       <li><%= link_to "Alle Events", events_path %></li>
     <ul class="right">
-    	<% if current_user %>
-    	<li><%= link_to current_user.name, user_path(current_user.id) %></li>
+      <% if current_user %>
+      <li><%= link_to current_user.name, user_path(current_user.id) %></li>
       <li class="has-dropdown">
         <a href="#">Event gefiltert </a>
         <ul class="dropdown">
           <li><%= link_to "Vergangene Events", past_events_path %></li>
         </ul>
       </li>
+      <li><%= link_to "Kalender", calendar_path(Date.today) %></li>
     </ul>
-    	<li><%= link_to "SignOut", session_path, method: :delete %></li>
-    	<% else %>
+      <li><%= link_to "SignOut", session_path, method: :delete %></li>
+      <% else %>
       <li><%= link_to "SignUp", signup_path %></li>
       <li><%= link_to "SignIn", signin_path %></li>
       <% end %>
